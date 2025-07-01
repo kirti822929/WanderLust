@@ -3,6 +3,10 @@
 
 <body>
    
+  <% if (allListings.length === 0) { %>
+  <h4 class="text-center mt-4">No results found</h4>
+<% } %>
+
 <style>
     #filters{
       display: flex;
@@ -126,4 +130,6 @@
      }
     }
   });
+ 
+
 </script>

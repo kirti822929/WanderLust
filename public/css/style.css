@@ -4,6 +4,9 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+   
+ 
+
 }
 .container{
     flex: 1;
@@ -52,9 +55,12 @@ body{
 }
 /*cards*/
 .listing-card{
-    border:none !important;
-     margin-bottom: 2rem;
+    border: none !important;
+    margin-bottom: 2rem;
+    
+
 }
+
 .card-img-top{
     border-radius: 1rem !important;
     width:100% !important;
@@ -101,3 +107,5 @@ body{
     padding-left: 0;
     padding-right: 0;
 }
+
+
