@@ -21,7 +21,8 @@ const LocalStrategy = require("passport-local");
 const User= require("./models/user.js");
   
 
-const dbUrl = "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl =  process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
+
 
 
 /*mongoose.connect(dbUrl);*/
@@ -35,7 +36,7 @@ const store= MongoStore.create({
   touchAfter:24*3600,
 });
 
-store.on("error",()=>{
+store.on("error",(err)=>{
   console.log("ERROR in MONGO SESSION STORE",err);
 });
 const sessionOptions= {
@@ -102,7 +103,7 @@ const validateListing=(req,res,next) => {
 
   if(error) {
     let errMsg=error.details.map((el)=> el.message).join(",");
-    throw new ExpressError(400,result.error);
+    throw new ExpressError(400,errMsg);
   }else{
     next();
   }
